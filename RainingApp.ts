@@ -269,6 +269,16 @@ export class RainingApp extends gfx.GfxApp {
         //We need to apply a Text texture to the raindrop material using the current letter
 
         // ADD YOUR CODE HERE
+
+        const rain = gfx.Geometry2Factory.createBox(0.1,0.1)
+        this.rain.material.texture = new gfx.Text('H', 64, 64, '48x Helvetica')
+        this.rain.material.color = gfx.Color.GREEN;
+        //this.rain.position = new gfx.Vector2(0.1, 0.5);
+        this.sceneXtoImageColumn.add(this.rain);
+
+
+
+        /*
         for(let entry of this.wordArray){
             const randomX = 50; 
             const fixedY = 50; 
@@ -279,6 +289,7 @@ export class RainingApp extends gfx.GfxApp {
             this.raindropsParentNode.material.texture = new gfx.Text(letter)
             this.scene.add(this.raindropsParentNode)
         }
+        */
 
         //====================================================================================================
     }
