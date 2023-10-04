@@ -128,11 +128,16 @@ export class RainingApp extends gfx.GfxApp {
         // To see the texture to the scene, we need to apply it as a material to some geometry.
         // in this case, we'll create a big rectangle that fills the entire screen (width = 2, height = 2).
         this.backgroundRect = gfx.Geometry2Factory.createBox(2, 2);
+        const rain = gfx.Geometry2Factory.createBox(0.5,0.5)
+        this.rain.material.texture = new gfx.Text('H', 64, 64, '48x Helvetica')
+        this.rain.material.color = gfx.Color.GREEN;
+        //this.rain.position = new gfx.Vector2(0.1, 0.5);
+        this.scene.add(this.rain);
 
         // Add all the objects to the scene--Order is important!
         // Objects that are added later will be rendered on top of objects that are added first.
         this.scene.add(this.backgroundRect);
-        this.scene.add(this.raindropsParentNode);
+        //this.scene.add(this.raindropsParentNode);
         
     }
 
@@ -141,13 +146,7 @@ export class RainingApp extends gfx.GfxApp {
     update(deltaTime: number): void {
         const latestImage = this.videoSourceManager.currentVideoSource.getImageData();
 
-        // 2 sceen units in 0.5 seconds
-        const speed = -2 / 1;
-        const deltaPos = speed * deltaTime;
-        this.raindropsParentNode.position.y = this.raindropsParentNode.position.y + deltaPos;
-        if (this.raindropsParentNode.position.y < -1.2) {
-            this.raindropsParentNode.position.y = 1.2;
-        }
+        
 
         if (latestImage instanceof ImageData) {
 
