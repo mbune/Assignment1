@@ -270,7 +270,7 @@ export class RainingApp extends gfx.GfxApp {
 
         // ADD YOUR CODE HERE
 
-        const rain = gfx.Geometry2Factory.createBox(0.1,0.1)
+        const rain = gfx.Geometry2Factory.createBox(0.5,0.5)
         this.rain.material.texture = new gfx.Text('H', 64, 64, '48x Helvetica')
         this.rain.material.color = gfx.Color.GREEN;
         //this.rain.position = new gfx.Vector2(0.1, 0.5);
